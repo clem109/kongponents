@@ -60,6 +60,28 @@ The value of the option which is currently selected.
 </Komponent>
 ```
 
+### extra - optional
+
+The value of the option which is currently selected.
+
+<Komponent :data="{ selected: '5m' }" v-slot="{ data }">
+  <KSegmentedControl
+      :options="['5m','30m','1h','6h','24h']"
+      :extra="['7 days','3 months','one year']"
+      v-model="data.selected"
+      @click="x => data.selected = x" />
+</Komponent>
+
+```vue
+<Komponent :data="{ selected: '5m' }" v-slot="{ data }">
+  <KSegmentedControl
+      :options="['5m','30m','1h','6h','24h']"
+      :extra="['7 days','3 months','one year']"
+      v-model="data.selected"
+      @click="x => data.selected = x" />
+</Komponent>
+```
+
 ### Listeners
 
 <Komponent :data="{ selected: 'On' }" v-slot="{ data }">

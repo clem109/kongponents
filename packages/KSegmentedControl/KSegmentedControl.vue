@@ -1,7 +1,7 @@
 <template>
   <div class="segmented-control d-flex" >
     <KButton
-      v-for="item in options"
+      v-for="item in opts"
       :key="label(item)"
       :name="value(item)"
       :disabled="disabled(item)"
@@ -28,6 +28,11 @@ export default {
       type: Array,
       required: true
     },
+    extra: {
+      type: Array,
+      required: false,
+      default: () => []
+    },
     selected: {
       type: [String, Number, Boolean],
       required: true
@@ -39,7 +44,8 @@ export default {
   },
   data () {
     return {
-      selectedValue: this.selected
+      selectedValue: this.selected,
+      opts: !this.extra.length ? this.options : [...this.options, '...']
     }
   },
   computed: {
